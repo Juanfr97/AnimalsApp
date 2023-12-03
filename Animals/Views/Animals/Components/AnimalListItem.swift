@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimalListItem: View {
-    let animal : Animal
+    let animal : AnimalModel
     var body: some View {
         HStack(alignment:.center,spacing: 16){
             AsyncImage(url: URL(string: animal.image)){ image in

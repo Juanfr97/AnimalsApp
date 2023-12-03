@@ -24,14 +24,6 @@ class AnimalsViewModel : NSObject, ObservableObject{
             guard let animals = fetchResultController.fetchedObjects else {
                 return
             }
-            for animal in animals {
-                print(animal.id!)
-                print(animal.name!)
-                print(animal.headline!)
-                for gallery in animal.galleryArray{
-                    print(gallery.unwrappedImage)
-                }
-            }
             self.animals = animals.map(AnimalModel.init)
         }
         catch{
@@ -48,31 +40,5 @@ extension AnimalsViewModel : NSFetchedResultsControllerDelegate{
             return
         }
         self.animals = animals.map(AnimalModel.init)
-    }
-}
-
-
-
-
-struct AnimalModel : Identifiable{
-    private var animal : AnimalEntity
-    init(animal:AnimalEntity){
-        self.animal = animal
-    }
-    
-    var id : UUID {
-        animal.id ?? UUID()
-    }
-    
-    var name : String {
-        animal.name ?? ""
-    }
-    
-    var headline : String {
-        animal.headline ?? ""
-    }
-    
-    var galleries : [GalleryEntity]{
-        animal.galleryArray
     }
 }

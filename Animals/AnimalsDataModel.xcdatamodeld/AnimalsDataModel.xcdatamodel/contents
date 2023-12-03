@@ -9,7 +9,13 @@
         <attribute name="link" optional="YES" attributeType="String"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="facts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FactEntity" inverseName="animal" inverseEntity="FactEntity"/>
         <relationship name="galleries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GalleryEntity" inverseName="animal" inverseEntity="GalleryEntity"/>
+    </entity>
+    <entity name="FactEntity" representedClassName="FactEntity" syncable="YES">
+        <attribute name="fact" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="animal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnimalEntity" inverseName="facts" inverseEntity="AnimalEntity"/>
     </entity>
     <entity name="GalleryEntity" representedClassName="GalleryEntity" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>

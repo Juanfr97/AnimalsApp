@@ -25,11 +25,18 @@ extension AnimalEntity {
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var galleries: NSSet?
+    @NSManaged public var facts: NSSet?
     
     public var galleryArray : [GalleryEntity] {
         let gallerySet = galleries as? Set<GalleryEntity> ?? []
         return gallerySet.sorted{
             $0.unwrappedImage < $1.unwrappedImage
+        }
+    }
+    public var factsArray : [FactEntity] {
+        let factsSet = facts as? Set<FactEntity> ?? []
+        return factsSet.sorted{
+            $0.unwrappedFact < $1.unwrappedFact
         }
     }
 
@@ -49,6 +56,18 @@ extension AnimalEntity {
 
     @objc(removeGalleries:)
     @NSManaged public func removeFromGalleries(_ values: NSSet)
+    
+    @objc(addFactsObject:)
+    @NSManaged public func addToFacts(_ value: FactEntity)
+
+    @objc(removeFactsObject:)
+    @NSManaged public func removeFromFacts(_ value: FactEntity)
+
+    @objc(addFacts:)
+    @NSManaged public func addToFacts(_ values: NSSet)
+
+    @objc(removeFacts:)
+    @NSManaged public func removeFromFacts(_ values: NSSet)
 
 }
 

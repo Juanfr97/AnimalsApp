@@ -12,17 +12,13 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            AnimalsView().tabItem {
+            AnimalsView(vm:AnimalsViewModel(context: viewContext)).tabItem {
                 Image(systemName: "pawprint.circle.fill")
                 Text("Animales")
             }
             MapsView().tabItem {
                 Image(systemName: "map")
                 Text("Localizaciones")
-            }
-            CoreDataTest(vm:AnimalsViewModel(context: viewContext)).tabItem {
-                Image(systemName: "plus")
-                Text("Test")
             }
         } // :TAB
     }

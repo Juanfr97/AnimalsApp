@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct InsetGallery: View {
-    let animal : Animal
+    let animal : AnimalModel
     var body: some View {
         ScrollView(.horizontal,showsIndicators: false) {
             HStack(alignment:.center,spacing: 15) {
                 
-                ForEach(animal.gallery, id: \.self) { item in
+                ForEach(animal.galleries, id: \.self) { item in
                     AsyncImage(url: URL(string: item)){ img in
                         img.resizable()
                             .scaledToFit()

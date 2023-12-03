@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimalDetailView: View {
-    let animal : Animal
+    let animal : AnimalModel
     var body: some View {
         ScrollView(.vertical,showsIndicators: false){
             VStack(alignment: .center, spacing: 20){

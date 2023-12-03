@@ -7,12 +7,12 @@
 import SwiftUI
 
 struct InsetFactView: View {
-    let animal : Animal
+    let animal : AnimalModel
     
     var body: some View {
         GroupBox {
             TabView{
-                ForEach(animal.fact, id: \.self) { item in
+                ForEach(animal.facts, id: \.self) { item in
                     Text(item)
                 }
             }

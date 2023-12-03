@@ -8,7 +8,12 @@
 import Foundation
 import SwiftUI
 struct AnimalsView: View {
-    let animals : [Animal] = Bundle.main.decode("animals.json")
+    @Environment(\.managedObjectContext) var viewContext
+    @ObservedObject private var animalsViewModel : AnimalsViewModel
+    @State private var isPresented : Bool = false
+    init(vm : AnimalsViewModel){
+        self.animalsViewModel = vm
+    }
     let haptics = UIImpactFeedbackGenerator(style: .medium)
     var body: some View {
         NavigationView{
@@ -17,7 +22,14 @@ struct AnimalsView: View {
                     Header()
                         .frame(height: 300)
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    ForEach(animals){ animal in
+                    if animalsViewModel.animals.isEmpty{
+                        Image(systemName: "pawprint.circle.fill")
+                        Text("Sin animales")
+                                    .font(.headline)
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                    }
+                    ForEach(animalsViewModel.animals){ animal in
                         NavigationLink{
                             AnimalDetailView(animal: animal)
                         } label:{
@@ -27,7 +39,11 @@ struct AnimalsView: View {
                 }
                 
                 Spacer()
-            }.navigationTitle("Animales")
+            }
+            .sheet(isPresented: $isPresented, content: {
+                AddAnimalView(vm:AddAnimalViewModel(context:viewContext)).navigationTitle("Agregar nuevo animal")
+            })
+            .navigationTitle("Animales")
                 .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.large)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -35,6 +51,7 @@ struct AnimalsView: View {
                             Button {
                                 print("Test")
                                 haptics.impactOccurred()
+                                isPresented = true
                             } label: {
                                 Image(systemName: "plus.app")
                                     .foregroundColor(.accentColor)
@@ -49,6 +66,9 @@ struct AnimalsView: View {
     }
 }
 
-#Preview {
-    AnimalsView()
+struct AnimalsView_Previews : PreviewProvider{
+    static var previews : some View {
+        let viewContext = CoreDataManager.shared.persistenceStoreContainer.viewContext
+        AnimalsView(vm:AnimalsViewModel(context: viewContext))
+    }
 }
