@@ -113,13 +113,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		978FFC932B1D205100991A46 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		97912E262B19461400A97D29 = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +141,6 @@
 				976A616F2B1BBC25009752BA /* Managers */,
 				97912E402B1946F400A97D29 /* Models */,
 				97912E382B19461500A97D29 /* Preview Content */,
-				978FFC932B1D205100991A46 /* Shared */,
 				97912E422B1946FF00A97D29 /* ViewModels */,
 				97912E412B1946F900A97D29 /* Views */,
 			);

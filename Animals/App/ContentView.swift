@@ -16,7 +16,7 @@ struct ContentView: View {
                 Image(systemName: "pawprint.circle.fill")
                 Text("Animales")
             }
-            MapsView().tabItem {
+            MapsView(vm:AnimalsViewModel(context: viewContext)).tabItem {
                 Image(systemName: "map")
                 Text("Localizaciones")
             }

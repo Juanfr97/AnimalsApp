@@ -10,11 +10,12 @@ import MapKit
 
 
 struct InsetMap: View {
+    let viewContext = CoreDataManager.shared.persistenceStoreContainer.viewContext
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:6.60286, longitude: 16.4377599), span: MKCoordinateSpan(latitudeDelta: 60.0, longitudeDelta: 60.0))
         var body: some View {
             Map(coordinateRegion: $region)
                 .overlay(
-                    NavigationLink(destination: MapsView(), label: {
+                    NavigationLink(destination: MapsView(vm: AnimalsViewModel(context: viewContext)), label: {
                         HStack{
                             Image(systemName: "mappin.circle")
                                 .foregroundColor(Color.white)

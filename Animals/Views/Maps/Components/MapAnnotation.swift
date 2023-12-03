@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MapAnnotationView: View {
-    var animal : Animal
+    var animal : AnimalModel
     @State private var animation : Double = 0.0
     var body: some View {
         ZStack {

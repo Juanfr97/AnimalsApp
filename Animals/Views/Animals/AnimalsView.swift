@@ -23,19 +23,24 @@ struct AnimalsView: View {
                         .frame(height: 300)
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     if animalsViewModel.animals.isEmpty{
-                        Image(systemName: "pawprint.circle.fill")
-                        Text("Sin animales")
-                                    .font(.headline)
-                                    .foregroundColor(.secondary)
-                                    .padding()
-                    }
-                    ForEach(animalsViewModel.animals){ animal in
-                        NavigationLink{
-                            AnimalDetailView(animal: animal)
-                        } label:{
-                            AnimalListItem(animal: animal)
+                        VStack(alignment:.center){
+                            Image(systemName: "pawprint.circle.fill")
+                            Text("Sin animales")
+                                        .font(.headline)
+                                        .foregroundColor(.secondary)
+                                        .padding()
+                        }.centerHorizontally()
+                        
+                    }else{
+                        ForEach(animalsViewModel.animals){ animal in
+                            NavigationLink{
+                                AnimalDetailView(animal: animal)
+                            } label:{
+                                AnimalListItem(animal: animal)
+                            }
                         }
                     }
+                    
                 }
                 
                 Spacer()

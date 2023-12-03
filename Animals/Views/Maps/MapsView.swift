@@ -15,15 +15,15 @@ struct MapsView: View {
         var mapRegion = MKCoordinateRegion(center: mapCoordinates, span: mapZoomLevel)
         return mapRegion
     }()
-    
-    let animals: [Animal] = Bundle.main.decode("animals.json")
-
-    
+    @ObservedObject private var animalsViewModel : AnimalsViewModel
+    init(vm : AnimalsViewModel){
+        self.animalsViewModel = vm
+    }
     var body: some View {
         //Map(coordinateRegion: $region)
         
         // MARK:  Map with annotations,
-        Map(coordinateRegion: $region, annotationItems: animals) { animal in
+        Map(coordinateRegion: $region, annotationItems: animalsViewModel.animals) { animal in
             MapAnnotation(coordinate: animal.location) {
                 MapAnnotationView(animal: animal)
             }
@@ -66,6 +66,3 @@ struct MapsView: View {
     
 }
 
-#Preview {
-    MapsView()
-}
