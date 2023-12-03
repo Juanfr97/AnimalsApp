@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MapAnnotationView: View {
-    // MARK:  properties,
     var animal : Animal
     @State private var animation : Double = 0.0
     var body: some View {
@@ -25,7 +24,7 @@ struct MapAnnotationView: View {
             AsyncImage(url: URL(string: animal.image)){ img in
                 img
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(width: 48,height: 48,alignment: .center)
                 .clipShape(Circle())
             }

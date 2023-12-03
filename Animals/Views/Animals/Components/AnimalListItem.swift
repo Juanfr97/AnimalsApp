@@ -16,7 +16,7 @@ struct AnimalListItem: View {
                     .scaledToFill()
                     .frame(width: 90,height: 90)
                     .clipShape(
-                    RoundedRectangle(cornerRadius: 12)
+                    Circle()
                     )
             }
         placeholder:{

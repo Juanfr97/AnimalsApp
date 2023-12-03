@@ -8,10 +8,6 @@
 import Foundation
 import SwiftUI
 import MapKit
-struct LocationWrapper: Identifiable {
-    var id = UUID()
-    var coordinate: CLLocationCoordinate2D
-}
 struct MapsView: View {
     @State private var region : MKCoordinateRegion = {
         var mapCoordinates = CLLocationCoordinate2D(latitude: 6.60286, longitude: 16.4377599)
@@ -68,11 +64,6 @@ struct MapsView: View {
             , alignment: .top)
     }
     
-    func getLocations() -> [LocationWrapper] {
-            let animals: [Animal] = Bundle.main.decode("animals.json")
-            let locationWrappers = animals.map { LocationWrapper(coordinate: $0.location) }
-            return locationWrappers
-        }
 }
 
 #Preview {

@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct AnimalsApp: App {
     var body: some Scene {
+        let viewContext = CoreDataManager.shared.persistenceStoreContainer.viewContext
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.managedObjectContext,viewContext)
         }
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let viewContext = CoreDataManager.shared.persistenceStoreContainer.viewContext
+    
     var body: some View {
         TabView {
             AnimalsView().tabItem {
@@ -17,6 +19,10 @@ struct ContentView: View {
             MapsView().tabItem {
                 Image(systemName: "map")
                 Text("Localizaciones")
+            }
+            CoreDataTest(vm:AnimalsViewModel(context: viewContext)).tabItem {
+                Image(systemName: "plus")
+                Text("Test")
             }
         } // :TAB
     }
