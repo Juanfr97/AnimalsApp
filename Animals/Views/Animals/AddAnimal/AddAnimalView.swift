@@ -94,9 +94,9 @@ struct AddAnimalView: View {
                 Group {
                     HeadingView(headingImage: "map", headingText: "Coordenadas")
                     HStack{
-                        TextField("Latitud", value: $addAnimalViewModel.latitude, formatter: Self.formatter).keyboardType(.numberPad)
+                        TextField("Latitud", value: $addAnimalViewModel.latitude, formatter: Self.formatter).keyboardType(.numbersAndPunctuation)
                         Spacer()
-                        TextField("Longitud", value: $addAnimalViewModel.longitude, formatter: Self.formatter).keyboardType(.numberPad)
+                        TextField("Longitud", value: $addAnimalViewModel.longitude, formatter: Self.formatter).keyboardType(.numbersAndPunctuation)
                     }
                 }
                 
