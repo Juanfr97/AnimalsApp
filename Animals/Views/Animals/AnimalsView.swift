@@ -37,16 +37,33 @@ struct AnimalsView: View {
                                 AnimalDetailView(animal: animal)
                             } label:{
                                 AnimalListItem(animal: animal)
+                                    .contextMenu {
+                                        Button {
+                                            animalsViewModel.selectedAnimal = animal
+                                            isPresented = true
+                                        } label: {
+                                            Text("Editar")
+                                            Image(systemName: "pencil")
+                                        }
+
+                                    }
                             }
+                        }
+                        .onDelete{ indexSet in
+                            animalsViewModel.deleteAnimal(indexSet: indexSet)
                         }
                     }
                     
                 }
                 
+                
                 Spacer()
             }
             .sheet(isPresented: $isPresented, content: {
-                AddAnimalView(vm:AddAnimalViewModel(context:viewContext)).navigationTitle("Agregar nuevo animal")
+                AddAnimalView(vm:AddAnimalViewModel(context:viewContext,animal:animalsViewModel.selectedAnimal)).navigationTitle("Agregar nuevo animal")
+                    .onAppear{
+                        print(animalsViewModel.selectedAnimal ?? "Selected animal is nil")
+                    }
             })
             .navigationTitle("Animales")
                 .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.large)
@@ -56,6 +73,7 @@ struct AnimalsView: View {
                             Button {
                                 print("Test")
                                 haptics.impactOccurred()
+                                animalsViewModel.selectedAnimal = nil
                                 isPresented = true
                             } label: {
                                 Image(systemName: "plus.app")

@@ -7,7 +7,7 @@
 
 import Foundation
 import MapKit
-struct AnimalModel : Identifiable{
+struct AnimalModel : Identifiable,Equatable{
     private var animal : AnimalEntity
     init(animal:AnimalEntity){
         self.animal = animal
