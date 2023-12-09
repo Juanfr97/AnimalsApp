@@ -8,8 +8,8 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* Xcode 11.4 or later
-* iOS 13.4 or later
+* Xcode 15.0.1 or later
+* iOS 17.0 or later
 
 ### Installation
 
