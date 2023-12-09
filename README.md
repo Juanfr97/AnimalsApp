@@ -61,7 +61,6 @@ The app displays a list of animals and their details. The user can add new anima
 
 ## Screenshots
 
-| ![HomeScreen](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.47.35.png>) | ![Add new animal](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.54.10.png>) |
-|:---:|:---:|
-| ![Animal list](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.54.51.png>) | ![Animal detail](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.55.02.png>) |
-| ![Animal location](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.55.13.png>) | ![Alt text](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 18.00.37.png>)|
+| ![HomeScreen](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.47.35.png>) | ![Add new animal](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.54.10.png>) | ![Animal list](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.54.51.png>) |
+|:---:|:---:|:---:|
+| ![Animal detail](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.55.02.png>) | ![Animal location](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 17.55.13.png>) | ![Edit view](<Simulator Screenshot - iPhone 15 Pro - 2023-12-08 at 18.00.37.png>)|
