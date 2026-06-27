@@ -2,6 +2,7 @@
 
 This project is a SwiftUI app that displays a list of animals and their details. The app uses the MVVM architecture and the Combine framework. Core Data is used to persist the data. MapKit is used to display the location of the animals.
 
+
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
