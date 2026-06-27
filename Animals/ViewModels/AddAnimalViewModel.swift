@@ -19,6 +19,8 @@ class AddAnimalViewModel: ObservableObject{
     @Published var factsList: [String] = []
     @Published var galleryList: [String] = []
     private var editAnimal : AnimalEntity?
+
+
     
     
     init(context:NSManagedObjectContext,animal:AnimalModel? = nil){
